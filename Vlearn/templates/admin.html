@@ -3,14 +3,125 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
     <title>admin</title>
   </head>
   <body>
-    <form action="">
-      <input type="text" name="topic" id="topic" />
-      <label for="descreption">Descreption</label>
-      <textarea id="descreption" rows="4" cols="50"></textarea>
-    </form>
+    <div class="container pt-3">
+      <div class="card">
+        <div class="card-body">
+          <form>
+            <div class="form-group row">
+              <div class="col-3">
+                <label for="exampleFormControlSelect1">Select Course</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>1</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Topic</label>
+              <input
+                type="email"
+                class="form-control"
+                id="exampleFormControlInput1"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Descreption</label>
+              <textarea
+                maxlength="250"
+                class="form-control"
+                id="exampleFormControlTextarea1"
+                rows="4"
+              ></textarea>
+            </div>
+            <button type="button" class="btn btn-primary">Submit button</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="container pt-3">
+      <div class="card">
+        <div class="card-body">
+          <form>
+            <div class="form-group row">
+              <div class="col-3">
+                <label for="exampleFormControlSelect1">Select Course</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>1</option>
+                </select>
+              </div>
+              <div class="col-3">
+                <label for="exampleFormControlSelect1">Select Topic</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>2</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Question</label>
+              <input
+                type="email"
+                class="form-control"
+                id="exampleFormControlInput1"
+              />
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Option-A</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Option-B</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                  />
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Option-C</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Option-D</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Right Answer</label>
+              <input
+                type="email"
+                class="form-control"
+                id="exampleFormControlInput1"
+              />
+            </div>
+            <button type="button" class="btn btn-primary">Submit button</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
