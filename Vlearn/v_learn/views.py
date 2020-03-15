@@ -10,7 +10,7 @@ def Detail(request):
 
 
 def Content(request):
-    return render(request, "Conttent.html")
+    return render(request, "Content.html")
 
 
 def forgotpassword(request):
