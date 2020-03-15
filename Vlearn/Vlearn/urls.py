@@ -19,6 +19,7 @@ from django.conf.urls import include
 from v_learn import views
 
 urlpatterns = [
+    # path('', views.Homepage),
+    path('', include('v_learn.urls')),
     path('admin/', admin.site.urls),
-    path('homepage/',include('v_learn.urls')),
 ]

@@ -10,9 +10,11 @@ class Course(models.Model):
         return self.course_name
 
 
-class Javascript(models.Model):
-    topic = models.CharField(max_length=264)
-    content = models.CharField(max_length=264)
+class Topic(models.Model):
+    course_name = models.ForeignKey(
+        Course, on_delete=models.CASCADE, null=True)
+    topic = models.CharField(max_length=264, null=True)
+    content = models.CharField(max_length=264, null=True)
 
     def __str__(self):
         return self.topic
@@ -20,7 +22,7 @@ class Javascript(models.Model):
 
 class Mcq(models.Model):
     course_name = models.ForeignKey(Course, on_delete=models.CASCADE)
-    topic = models.ForeignKey(Javascript, on_delete=models.CASCADE)
+    topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     question = models.CharField(max_length=264)
     option_a = models.CharField(max_length=264)
     option_b = models.CharField(max_length=264)
