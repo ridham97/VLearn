@@ -25,6 +25,23 @@
   <body>
     {% block content %}{% endblock %}
 
+    <script>
+      $(document).ready(function () {
+    var trigger = $('#navbarText ul li a'),
+        container = $('#card-1');
+
+    $("#card-1").load("v-module.html");
+    trigger.on('click', function () {
+        var $this = $(this),
+            target = $this.data('target');
+
+        container.load(target + '.html');
+
+
+        return false;
+    });
+});
+    </script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
@@ -34,14 +51,16 @@
 
     <script>
       function openNav() {
-        document.getElementById('mySidenav').style.width = '250px';
-        document.getElementById('wrapper').style.marginLeft = '250px';
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("wrapper").style.marginLeft = "250px";
+        document.getElementById("openmenu").style.display = "none";
       }
-
+      
       function closeNav() {
-        document.getElementById('mySidenav').style.width = '0';
-        document.getElementById('wrapper').style.marginLeft = '0';
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("wrapper").style.marginLeft= "0";
+        document.getElementById("openmenu").style.display = "block";
       }
-    </script>
+      </script>
   </body>
 </html>
