@@ -14,7 +14,7 @@ class Topic(models.Model):
     course_name = models.ForeignKey(
         Course, on_delete=models.CASCADE, null=True)
     topic = models.CharField(max_length=264, null=True)
-    content = models.CharField(max_length=264, null=True)
+    content = models.CharField(max_length=10000, null=True)
 
     def __str__(self):
         return self.topic
