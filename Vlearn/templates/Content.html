@@ -7,10 +7,12 @@
           <div class="progress-bar bg-success" role="progressbar" style="width: 85%;" aria-valuenow="85"
               aria-valuemin="0" aria-valuemax="100">85%</div>
       </div>
-      <a href="#">&#10004 Introduction</a>
-      <a href="#">Array</a>
+      {% for acc in topic_list %}
+      <a href="#"> {{ acc.topic }}</a>
+      <!-- <a href="#">Array</a>
       <a href="#">&#10004 Class</a>
-      <a href="#">Pointer</a>
+      <a href="#">Pointer</a> -->
+      {% endfor %}
     </div>
 
     <div id="content-wrapper">
@@ -115,10 +117,21 @@
               </div>
           </nav>
 
+          {% for acc in topic_list %}
           <div class="card shadow-sm m-2" id="card-1">
+            <div class="card-header py-3">
+                <p class="text-primary m-0 font-weight-bold">
+                    {{acc.topic}}
+                </p>
+            </div>
+            <div class="card-body">
+                <p class="text-justify">
+                    {{acc.content}}
 
-          </div>
-
+                </p>
+                </div>
+            </div>
+            {% endfor %}
       </div>
   </div>
 </div>

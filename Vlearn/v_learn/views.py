@@ -54,6 +54,16 @@ def Homepage(request):
     my_course_table = {"insert_course_table": course_table}
     return render(request, "Homepage.html", context=my_course_table)
 
+def Content(request):
+    topic_list = Topic.objects.all()
+    topic_list = {"topic_list":topic_list}
+    return render(request,"Content.html",context=topic_list)
+
+def Detail(request):
+    topic_list = Topic.objects.all()
+    topic_list = {"topic_list":topic_list}
+    return render(request,"Detail.html",context=topic_list)        
+
 
 def adminform(request):
     topic_data = Course.objects.all()

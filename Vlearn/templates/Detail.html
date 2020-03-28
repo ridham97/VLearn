@@ -83,142 +83,25 @@
       </div>
       <div class="card-body">
         <div class="accordion " id="accordionExample">
+          {% for acc in topic_list %}
           <div class="card">
             <div class="card-header" id="headingOne">
-              <h2
+              <p
                 class="mb-0"
                 data-toggle="collapse"
                 data-target="#collapseOne"
                 aria-expanded="true"
                 aria-controls="collapseOne"
               >
-                <a class="btn">
-                  <span class="mr-2"
-                    ><img
-                      src="https://img.icons8.com/windows/23/000000/plus.png"
-                  /></span>
-                  Introduction to Course
-                </a>
-              </h2>
-            </div>
-            <div
-              id="collapseOne"
-              class="collapse show"
-              aria-labelledby="headingOne"
-              data-parent="#accordionExample"
-            >
-              <div class="card-body">
-                <ul>
-                  <li>introduction</li>
-                  <li>content</li>
-                  <li>topic</li>
-                  <li>theory</li>
-                </ul>
-              </div>
+
+                  
+                  {{acc.topic}}
+                
+
+            </p>
             </div>
           </div>
-          <div class="card">
-            <div class="card-header" id="headingTwo">
-              <h2
-                class="mb-0"
-                data-toggle="collapse"
-                data-target="#collapseTwo"
-                aria-expanded="true"
-                aria-controls="collapseTwo"
-              >
-                <a class="btn">
-                  <span class="mr-2"
-                    ><img
-                      src="https://img.icons8.com/windows/23/000000/plus.png"
-                  /></span>
-                  Introduction to Course
-                </a>
-              </h2>
-            </div>
-            <div
-              id="collapseTwo"
-              class="collapse"
-              aria-labelledby="headingTwo"
-              data-parent="#accordionExample"
-            >
-              <div class="card-body">
-                <ul>
-                  <li>introduction</li>
-                  <li>content</li>
-                  <li>topic</li>
-                  <li>theory</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header" id="headingThree">
-              <h2
-                class="mb-0"
-                data-toggle="collapse"
-                data-target="#collapseThree"
-                aria-expanded="true"
-                aria-controls="collapseThree"
-              >
-                <a class="btn">
-                  <span class="mr-2"
-                    ><img
-                      src="https://img.icons8.com/windows/23/000000/plus.png"
-                  /></span>
-                  Introduction to Course
-                </a>
-              </h2>
-            </div>
-            <div
-              id="collapseThree"
-              class="collapse"
-              aria-labelledby="headingThree"
-              data-parent="#accordionExample"
-            >
-              <div class="card-body">
-                <ul>
-                  <li>introduction</li>
-                  <li>content</li>
-                  <li>topic</li>
-                  <li>theory</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header" id="headingFour">
-              <h2
-                class="mb-0"
-                data-toggle="collapse"
-                data-target="#collapseFour"
-                aria-expanded="true"
-                aria-controls="collapseFour"
-              >
-                <a class="btn">
-                  <span class="mr-2"
-                    ><img
-                      src="https://img.icons8.com/windows/23/000000/plus.png"
-                  /></span>
-                  Introduction to Course
-                </a>
-              </h2>
-            </div>
-            <div
-              id="collapseFour"
-              class="collapse"
-              aria-labelledby="headingFour"
-              data-parent="#accordionExample"
-            >
-              <div class="card-body">
-                <ul>
-                  <li>introduction</li>
-                  <li>content</li>
-                  <li>topic</li>
-                  <li>theory</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+      {% endfor %}
         </div>
       </div>
     </div>
