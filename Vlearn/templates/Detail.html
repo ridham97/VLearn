@@ -20,11 +20,15 @@
   >
     <div class="navbar-nav">
       <a
-        class="nav-item btn btn-dark nav-link text-white mr-2"
-        href="./login.html"
+        class="nav-item btn btn-dark rounded-sm nav-link text-white mr-2"
+        href="{% url 'templates:login' %}"
         >Login</a
       >
-      <a class="nav-item nav-link active" href="./register.html">Sign up</a>
+      <a
+        class="nav-item nav-link rounded-sm active"
+        href="{% url 'templates:register' %}"
+        >Sign up</a
+      >
     </div>
   </div>
 </nav>
@@ -39,40 +43,7 @@
       </div>
       <div class="card-body">
         <p class="text-justify">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit.Porro hic
-          consequuntur maiores eveniet? Culpa est assumenda,facilis deserunt
-          minus iure, consequatur eos voluptate aliquam cumque ratione quaerat
-          ad dolore asperiores. Lorem ipsum dolor sit amet, Lorem ipsum dolor
-          sit amet consectetur, adipisicing elit. Deleniti deserunt quo quas,
-          doloribus nisi ducimus recusandae, delectus consequatur alias, ullam
-          ipsum! Magnam repudiandae alias non cupiditate est minus magni
-          deserunt! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Earum temporibus sed adipisci, dolor enim laborum repellendus sapiente
-          doloremque placeat distinctio. Sequi quisquam porro, praesentium totam
-          similique officia molestiae nobis itaque. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Laboriosam minima qui expedita animi
-          obcaecati sequi sapiente quam facere nemo sit. Voluptatum repudiandae
-          repellendus obcaecati eaque reprehenderit vel officia maxime dolor.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
-          necessitatibus est quasi. Nesciunt natus fugit ad, dolore commodi
-          dolores amet molestiae voluptas dicta error ab facere iste distinctio
-          repudiandae aliquid? Lorem ipsum dolor, sit amet consectetur
-          adipisicing elit. Qui hic, tempore officia dolore labore rem amet,
-          similique autem temporibus sit adipisci, perferendis expedita. Labore
-          animi, eveniet culpa maiores incidunt itaque! consectetur adipisicing
-          elit. Voluptate quam explicabo, blanditiis fuga quia deleniti
-          laboriosam aliquid, expedita ex quibusdam vel, nesciunt possimus qui
-          animi delectus. Quidem earum ullam quisquam.
-        </p>
-        <p class="text-justify">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit.Porro hic
-          consequuntur maiores eveniet? Culpa est assumenda,facilis deserunt
-          minus iure, consequatur eos voluptate aliquam cumque ratione quaerat
-          ad dolore asperiores. Lorem ipsum dolor sit amet, Lorem ipsum dolor
-          sit amet consectetur, adipisicing elit. Deleniti deserunt quo quas,
-          doloribus nisi ducimus recusandae, delectus consequatur alias, ullam
-          ipsum! Magnam repudiandae alias non cupiditate est minus magni
-          deserunt!
+          {{topic_list.0.content | safe }}
         </p>
       </div>
     </div>
@@ -93,21 +64,20 @@
                 aria-expanded="true"
                 aria-controls="collapseOne"
               >
-
-                  
-                  {{acc.topic}}
-                
-
-            </p>
+                {{acc.topic}}
+              </p>
             </div>
           </div>
-      {% endfor %}
+          {% endfor %}
         </div>
       </div>
     </div>
 
     <div class="d-flex justify-content-center my-3">
-      <a href="{% url 'templates:content' %}" class="btn btn-primary m-5 display-4">
+      <a
+        href="{% url 'templates:content' %}"
+        class="btn btn-primary m-5 display-4"
+      >
         Enroll me</a
       >
     </div>
