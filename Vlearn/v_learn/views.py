@@ -72,7 +72,6 @@ def adminform(request):
     coursename = request.POST.get("course_name")
     topicValue = request.POST.get("TopicValue")
     contentValue = request.POST.get("ContentValue")
-    save_data = Topic(course_name=coursename, topic=topicValue,
-                      content=contentValue)
+    save_data = Topic(course_name_id=coursename, topic=topicValue,content=contentValue)
     save_data.save()
     return render(request, "admin.html", context=topic_list)

@@ -9,6 +9,8 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
     <title>admin</title>
   </head>
   <body>
@@ -34,7 +36,7 @@
     <div class="container pt-3">
       <div class="card">
         <div class="card-body">
-          <form method="post" action="/adminform">
+          <form method="POST" action="/adminform">
             {% csrf_token %}
             <div class="form-group row">
               <div class="col-3">
@@ -45,9 +47,9 @@
                   name="course_name"
                   id="exampleFormControlSelect1"
                 >
-                  <option selected="select" value="seleted"></option>
+                  <!-- <option selected="select" value="seleted"></option> -->
                   {% for listTopic in insetTopicData %}
-                  <option class="text-dark" value="{{listTopic.course_name}}"
+                  <option class="text-dark" value="{{listTopic.id}}"
                     >{{listTopic.course_name}}</option
                   >
                   {% endfor %}
@@ -66,16 +68,10 @@
             </div>
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Descreption</label>
-              <textarea
-                maxlength="1000"
-                required
-                name="ContentValue"
-                class="form-control"
-                id="exampleFormControlTextarea1"
-                rows="4"
-              ></textarea>
+              <div id="editor"></div>
+              <input type="text" id="id1" name="ContentValue">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" onclick="myfun()" class="btn btn-primary">Submit</button>
           </form>
         </div>
       </div>
@@ -157,5 +153,14 @@
         </div>
       </div>
     </div>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script>
+    var quill = new Quill('#editor', {
+      theme: 'snow'
+    });
+    function myfun(){
+      var inputF = document.getElementById("id1").value = quill.root.innerHTML;
+    }
+    </script>
   </body>
 </html>

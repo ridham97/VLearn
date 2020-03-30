@@ -7,7 +7,7 @@ class Course(models.Model):
     course_name = models.CharField(max_length=264, unique=True)
 
     def __str__(self):
-        return self.course_name
+        return self.course_name or ''
 
 
 class Topic(models.Model):
@@ -17,7 +17,7 @@ class Topic(models.Model):
     content = models.CharField(max_length=10000, null=True)
 
     def __str__(self):
-        return self.topic
+        return self.topic or ''
 
 
 class Mcq(models.Model):
@@ -31,4 +31,4 @@ class Mcq(models.Model):
     right_option = models.CharField(max_length=264)
 
     def __str__(self):
-        return self.question
+        return self.question or ''

@@ -8,10 +8,7 @@
               aria-valuemin="0" aria-valuemax="100">85%</div>
       </div>
       {% for acc in topic_list %}
-      <a href="#"> {{ acc.topic }}</a>
-      <!-- <a href="#">Array</a>
-      <a href="#">&#10004 Class</a>
-      <a href="#">Pointer</a> -->
+      <a href="#" class="text-dark"> {{ acc.topic }}</a>
       {% endfor %}
     </div>
 
@@ -96,10 +93,10 @@
               <div class="collapse navbar-collapse" id="navbarText">
                   <ul class="navbar-nav mr-auto justify-content-around" style="width: 100%;">
                       <li class="nav-item active">
-                          <a class="nav-link v-active" data-target="v-module" href="#">Module</a>
+                          <a class="nav-link v-active" data-target="v-module" href="#" >Module</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link v-active" data-target="v-simulator" href="#">Simulator</a>
+                          <a class="nav-link v-active" data-target="v-simulator" href="/v-module.html">Simulator</a>
                       </li>
                       <li class="nav-item">
                           <a class="nav-link v-active" data-target="v-compiler" href="#">Compiler</a>
@@ -126,8 +123,7 @@
             </div>
             <div class="card-body">
                 <p class="text-justify">
-                    {{acc.content}}
-
+                    {{acc.content | safe}}
                 </p>
                 </div>
             </div>
