@@ -20,11 +20,15 @@
   >
     <div class="navbar-nav">
       <a
-        class="nav-item btn btn-dark nav-link text-white mr-2"
-        href="./login.html"
+        class="nav-item btn btn-dark rounded-sm nav-link text-white mr-2"
+        href="{% url 'templates:login' %}"
         >Login</a
       >
-      <a class="nav-item nav-link active" href="./register.html">Sign up</a>
+      <a
+        class="nav-item nav-link rounded-sm active"
+        href="{% url 'templates:register' %}"
+        >Sign up</a
+      >
     </div>
   </div>
 </nav>
@@ -39,7 +43,11 @@
       </div>
       <div class="card-body">
         <p class="text-justify">
+<<<<<<< HEAD
          {{topic_list.0.content | safe }}
+=======
+          {{topic_list.0.content | safe }}
+>>>>>>> 8dcda55e5cf144d2df776eebd1515ad9ed8a5065
         </p>
       </div>
     </div>
@@ -59,21 +67,20 @@
                 aria-expanded="true"
                 aria-controls="collapseOne"
               >
-
-                  
-                  {{acc.topic}}
-                
-
-            </p>
+                {{acc.topic}}
+              </p>
             </div>
           </div>
-      {% endfor %}
+          {% endfor %}
         </div>
       </div>
     </div>
 
     <div class="d-flex justify-content-center my-3">
-      <a href="{% url 'templates:content' %}" class="btn btn-primary m-5 display-4">
+      <a
+        href="{% url 'templates:content' %}"
+        class="btn btn-primary m-5 display-4"
+      >
         Enroll me</a
       >
     </div>

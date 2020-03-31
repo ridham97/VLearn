@@ -20,11 +20,15 @@
   >
     <div class="navbar-nav">
       <a
-        class="nav-item btn btn-dark nav-link text-white mr-2"
-        href="./login.html"
+        class="nav-item btn btn-dark rounded-sm nav-link text-white mr-2"
+        href="{% url 'templates:login' %}"
         >Login</a
       >
-      <a class="nav-item nav-link active" href="./register.html">Sign up</a>
+      <a
+        class="nav-item nav-link rounded-sm active"
+        href="{% url 'templates:register' %}"
+        >Sign up</a
+      >
     </div>
   </div>
 </nav>
