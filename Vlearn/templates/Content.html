@@ -22,7 +22,7 @@
                               <span style="font-size:30px;cursor:pointer" id="openmenu" onclick="openNav()">&#9776;</span>
                   <a class="navbar-brand" href="#"><b class="display-4">V</b>Learn</a>
                   <ul class="nav navbar-nav flex-nowrap ml-auto">
-                      <li class="nav-item dropdown no-arrow mx-1" role="presentation">
+                      <!-- <li class="nav-item dropdown no-arrow mx-1" role="presentation">
                           <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
                                   data-toggle="dropdown" aria-expanded="false" href="#"><span
                                       class="badge badge-danger badge-counter">3+</span><i
@@ -61,7 +61,7 @@
                                       Alerts</a>
                               </div>
                           </div>
-                      </li>
+                      </li> -->
                       <div class="d-none d-sm-block topbar-divider"></div>
                       <li class="nav-item dropdown no-arrow" role="presentation">
                           <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
@@ -93,41 +93,29 @@
               <div class="collapse navbar-collapse" id="navbarText">
                   <ul class="navbar-nav mr-auto justify-content-around" style="width: 100%;">
                       <li class="nav-item active">
-                          <a class="nav-link v-active" data-target="v-module" href="#" >Module</a>
+                          <a class="nav-link v-active" data-target="./templates/v-module" href="#" >Module</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link v-active" data-target="v-simulator" href="/v-module.html">Simulator</a>
+                          <a class="nav-link v-active" data-target="./templates/v-simulator" href="#">Simulator</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link v-active" data-target="v-compiler" href="#">Compiler</a>
+                          <a class="nav-link v-active" data-target="./templates/v-compiler" href="#">Compiler</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link v-active" data-target="v-video_topic" href="#">Video</a>
+                          <a class="nav-link v-active" data-target="./templates/v-video_topic" href="#">Video</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link v-active" data-target="v-quiz" href="#">Quiz</a>
+                          <a class="nav-link v-active" data-target="./templates/v-quiz" href="#">Quiz</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link v-active" data-target="v-faq" href="#">FAQ</a>
+                          <a class="nav-link v-active" data-target="./templates/v-faq" href="#">FAQ</a>
                       </li>
                   </ul>
               </div>
           </nav>
 
-          {% for acc in topic_list %}
           <div class="card shadow-sm m-2" id="card-1">
-            <div class="card-header py-3">
-                <p class="text-primary m-0 font-weight-bold">
-                    {{acc.topic}}
-                </p>
             </div>
-            <div class="card-body">
-                <p class="text-justify">
-                    {{acc.content | safe}}
-                </p>
-                </div>
-            </div>
-            {% endfor %}
       </div>
   </div>
 </div>

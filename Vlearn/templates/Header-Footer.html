@@ -24,6 +24,7 @@
   </head>
   <body>
     {% block content %}{% endblock %}
+  
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -50,7 +51,7 @@
         var trigger = $('#navbarText ul li a'),
           container = $('#card-1');
 
-        $('#card-1').load('./v-module.html');
+        $('#card-1').load('templates/v-module.html');
         trigger.on('click', function() {
           var $this = $(this),
             target = $this.data('target');
@@ -61,5 +62,30 @@
         });
       });
     </script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
+ 
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBe8Ztche_W9jaQjqvc6-a5sTqryJtkIns",
+    authDomain: "vlearn-2ba02.firebaseapp.com",
+    databaseURL: "https://vlearn-2ba02.firebaseio.com",
+    projectId: "vlearn-2ba02",
+    storageBucket: "vlearn-2ba02.appspot.com",
+    messagingSenderId: "308613784751",
+    appId: "1:308613784751:web:ac4257366afd772976e05a",
+    measurementId: "G-8VDV6NQ818"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
   </body>
 </html>

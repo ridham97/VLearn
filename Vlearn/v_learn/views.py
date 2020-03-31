@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
+import os
+from django.conf import settings 
 
 # Create your views here.
 from django.http import HttpResponse
@@ -33,20 +36,30 @@ def Register(request):
 #     return render(request, "v-faq.html")
 
 
-# def vmodule(request):
-#     return render(request, "v-module.html")
+def vmodule(request):
+    with open(os.path.join(settings.BASE_DIR,'templates/v-module.html'),"r") as f:
+        data = f.read()
+        topic_content = Topic.objects.all()
+        topic_content = {"topic_content":topic_content}
+        return HttpResponse(data)
 
 
-# def vquiz(request):
-#     return render(request, "v-quiz.html")
+def vquiz(request):
+    with open(os.path.join(settings.BASE_DIR,'templates/v-quiz.html'),"r") as f:
+        data = f.read()
+        return HttpResponse(data)
 
 
-# def vsimulator(request):
-#     return render(request, "v-simulator.html")
+def vsimulator(request):
+   with open(os.path.join(settings.BASE_DIR,'templates/v-simulator.html'),"r") as f:
+        data = f.read()
+        return HttpResponse(data)
 
 
-# def vvideotopic(request):
-#     return render(request, "v-video_topic.html")
+def vvideotopic(request):
+    with open(os.path.join(settings.BASE_DIR,'templates/v-video_topic.html'),"r") as f:
+        data = f.read()
+        return HttpResponse(data)
 
 
 def Homepage(request):
