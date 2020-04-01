@@ -73,11 +73,10 @@
     </div>
 
     <div class="d-flex justify-content-center my-3">
-      <a
-        href="{% url 'templates:content' %}"
+      <button onclick="EnrollUser()"
         class="btn btn-primary m-5 display-4"
       >
-        Enroll me</a
+        Enroll me</button
       >
     </div>
   </div>
@@ -156,4 +155,9 @@
     </div>
   </div>
 </div>
+<script>
+  const EnrollUser = ()=>{
+    window.localStorage.getItem("Email") ? window.location.assign('/content') : window.location.assign('/register');
+  }
+</script>
 {% endblock %}

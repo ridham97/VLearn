@@ -32,3 +32,12 @@ class Mcq(models.Model):
 
     def __str__(self):
         return self.question or ''
+
+class VlearnUser(models.Model):
+    emailid = models.CharField(max_length=264,null=True)
+    courseList = models.CharField(max_length=264,null=True)
+    percentage =  models.CharField(max_length=264,null=True)
+
+    def __str__(self):
+        return self.emailid or ''
+

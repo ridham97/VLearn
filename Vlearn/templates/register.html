@@ -14,9 +14,8 @@
                             <h4 class="text-dark mb-4">Create an Account!</h4>
                         </div>
                         <p class="text-danger" id="error">Please verify email-id</p>
-                        <form class="user" action="">
+                        <form class="user" method="POST">
                             {% csrf_token %}
-
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user"
                                         required type="text" id="exampleFirstName" placeholder="First Name"
@@ -35,8 +34,10 @@
                         </form>
                         <button class="btn btn-primary btn-block text-white btn-user" onclick="RegisterNewUser()">
                             Register Account</button>
-                        <hr><a class="btn btn-primary btn-block text-white btn-google btn-user" role="button"><i
-                                class="fab fa-google"></i>&nbsp; Register with Google</a>
+                        <hr>
+                        <button onclick="Googlesignup()"
+                            class="btn btn-primary btn-block text-white btn-google btn-user"><i
+                                class="fab fa-google"></i>&nbsp; Register with Google</button>
                         <hr>
                         <div class="text-center"><a class="small" href="forgot-password.html">Forgot Password?</a>
                         </div>
@@ -44,17 +45,17 @@
                                 account?
                                 Login!</a></div>
                     </div>
-                 
+
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
+</div>
 </div>
 
 <script>
-                document.getElementById("error").style.display = "none";
-    
+    document.getElementById("error").style.display = "none";
+
     const RegisterNewUser = () => {
         const email = $("#exampleInputEmail").val();
         const password = $("#examplePasswordInput").val();
@@ -78,6 +79,18 @@
             .catch(error => {
                 console.error(error);
             })
-    }   
+    }
+
+    const Googlesignup = () => {
+        const provider = new firebase.auth.GoogleAuthProvider()
+        firebase.auth().signInWithPopup(provider).then(function (result) {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            var token = result.credential.accessToken;
+            // The signed-in user info.
+            var user = result.user;
+            console.log("yes")
+            // ...
+        })
+    }
 </script>
 {% endblock %}

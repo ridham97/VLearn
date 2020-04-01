@@ -1,85 +1,53 @@
 {% extends "Header-Footer.html" %} {% block content %}
 
-    <div class="container bg-dark p-5">
-      <div class="row justify-content-center">
-        <div class="col-md-9 col-lg-12 col-xl-10">
-          <div class="card border-0 o-hidden my-5">
-            <div class="card-body p-0">
-              <div class="row">
-                <div class="col-lg-6 d-none d-lg-flex">
-                  <div
-                    class="flex-grow-1 bg-login-image"
-                    style='background-image: url("../static/img/computer/image1.jpg");'
-                  ></div>
+<div class="container bg-dark p-5">
+  <div class="row justify-content-center">
+    <div class="col-md-9 col-lg-12 col-xl-10">
+      <div class="card border-0 o-hidden my-5">
+        <div class="card-body p-0">
+          <div class="row">
+            <div class="col-lg-6 d-none d-lg-flex">
+              <div class="flex-grow-1 bg-login-image"
+                style='background-image: url("../static/img/computer/image1.jpg");'></div>
+            </div>
+            <div class="col-lg-6">
+              <div class="p-5">
+                <div class="text-center">
+                  <h4 class="text-dark mb-4">Welcome Back!</h4>
                 </div>
-                <div class="col-lg-6">
-                  <div class="p-5">
-                    <div class="text-center">
-                      <h4 class="text-dark mb-4">Welcome Back!</h4>
-                    </div>
-                    <form class="user">
-                      <div class="form-group">
-                        <input
-                          class="form-control form-control-user"
-                          type="email"
-                          id="exampleInputEmail"
-                          aria-describedby="emailHelp"
-                          placeholder="Enter Email Address..."
-                          name="email"
-                        />
-                      </div>
+                <form class="user">
+                  <div class="form-group">
+                    <input class="form-control form-control-user" type="email" id="exampleInputEmail"
+                      aria-describedby="emailHelp" placeholder="Enter Email Address..." name="email" />
+                  </div>
 
-                      <div class="form-group">
-                        <input
-                          class="form-control form-control-user"
-                          type="password"
-                          id="exampleInputPassword"
-                          placeholder="Password"
-                          name="password"
-                        />
-                      </div>
+                  <div class="form-group">
+                    <input class="form-control form-control-user" type="password" id="exampleInputPassword"
+                      placeholder="Password" name="password" />
+                  </div>
 
-                      <div class="form-group">
-                        <div class="custom-control custom-checkbox small">
-                          <div class="form-check">
-                            <input
-                              class="form-check-input custom-control-input"
-                              type="checkbox"
-                              id="formCheck-1"
-                            /><label
-                              class="form-check-label custom-control-label"
-                              for="formCheck-1"
-                              >Remember Me</label
-                            >
-                          </div>
-                        </div>
+                  <div class="form-group">
+                    <div class="custom-control custom-checkbox small">
+                      <div class="form-check">
+                        <input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1" /><label
+                          class="form-check-label custom-control-label" for="formCheck-1">Remember Me</label>
                       </div>
-                    </form>
-                      <button
-                        class="btn btn-primary btn-block text-white btn-user"
-                        onclick="LoginUser()"
-                      >
-                        Login
-                      </button>
-                      <hr />
-                      <a
-                        class="btn btn-primary btn-block text-white btn-google btn-user"
-                        role="button"
-                        ><i class="fab fa-google"></i>&nbsp; Login with
-                        Google</a
-                      >
-                      <hr />
-                    <div class="text-center">
-                      <a class="small"  href="{% url 'templates:forgotpass' %}"
-                        >Forgot Password?</a
-                      >
-                    </div>
-                    <div class="text-center">
-                      <a class="small"  href="{% url 'templates:register' %}"
-                        >Create an Account!</a
-                      >
                     </div>
                   </div>
+                </form>
+                <button class="btn btn-primary btn-block text-white btn-user" onclick="LoginUser()">
+                  Login
+                </button>
+                <hr />
+                <a class="btn btn-primary btn-block text-white btn-google btn-user" role="button"><i
+                    class="fab fa-google"></i>&nbsp; Login with
+                  Google</a>
+                <hr />
+                <div class="text-center">
+                  <a class="small" href="{% url 'templates:forgotpass' %}">Forgot Password?</a>
+                </div>
+                <div class="text-center">
+                  <a class="small" href="{% url 'templates:register' %}">Create an Account!</a>
                 </div>
               </div>
             </div>
@@ -87,20 +55,20 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
 
-    <script>
-      const LoginUser = ()=>{
-       const email = $("#exampleInputEmail").val();
-        const password = $("#exampleInputPassword").val();
-        firebase.auth().onAuthStateChanged(user => {
-          if(user.emailVerified===true){
-            firebase.auth().signInWithEmailAndPassword(email, password).then(()=>{
-              window.location.assign("/content");
-            })
-          }
+<script>
+  const LoginUser = () => {
+    const email = $("#exampleInputEmail").val();
+    const password = $("#exampleInputPassword").val();
+    firebase.auth().onAuthStateChanged(user => {
+      firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
+        window.location.assign("/content");
+        window.localStorage.setItem("Email", email);
       })
-     
-      }
-    </script>
-    {% endblock %}
+    })
 
+  }
+</script>
+{% endblock %}

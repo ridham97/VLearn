@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 import os
 from django.conf import settings 
 
 # Create your views here.
 from django.http import HttpResponse
-from v_learn.models import Course, Topic, Mcq
+from v_learn.models import Course, Topic, Mcq, VlearnUser
 
 
 def Detail(request):
@@ -28,20 +28,19 @@ def Profile(request):
     return render(request, "Profile.html")
 
 
-def Register(request):
-    return render(request, "register.html")
+
 
 
 # def vfaq(request):
 #     return render(request, "v-faq.html")
 
 
-def vmodule(request):
-    with open(os.path.join(settings.BASE_DIR,'templates/v-module.html'),"r") as f:
-        data = f.read()
-        topic_content = Topic.objects.all()
-        topic_content = {"topic_content":topic_content}
-        return HttpResponse(data)
+# def vmodule(request):
+#     with open(os.path.join(settings.BASE_DIR,'templates/v-module.html'),"r") as f:
+#         data = f.read()
+#         topic_content = Topic.objects.all()
+#         topic_content = {"topic_content":topic_content}
+#         return HttpResponse(data)
 
 
 def vquiz(request):
@@ -88,3 +87,15 @@ def adminform(request):
     save_data = Topic(course_name_id=coursename, topic=topicValue,content=contentValue)
     save_data.save()
     return render(request, "admin.html", context=topic_list)
+
+def Register(request):
+    useremail = request.POST.get("email")
+    save_data = VlearnUser(emailid=useremail,courseList=1,percentage=1)
+    save_data.save()
+    return render(request, "register.html")
+
+def Get_Data_topic(request):
+    id=request.GET['id']
+    topic = Topic.objects.get(id=id)
+    return JsonResponse({'name':topic.topic,
+    'content':topic.content})
