@@ -48,18 +48,22 @@ def vquiz(request):
         data = f.read()
         return HttpResponse(data)
 
-
-def vsimulator(request):
-   with open(os.path.join(settings.BASE_DIR,'templates/v-simulator.html'),"r") as f:
+def vcompiler(request):
+    with open(os.path.join(settings.BASE_DIR,'templates/v-compiler.html'),"r") as f:
         data = f.read()
         return HttpResponse(data)
+
+
+# def vsimulator(request):
+#    with open(os.path.join(settings.BASE_DIR,'templates/v-simulator.html'),"r") as f:
+#         data = f.read()
+#         return HttpResponse(data)
 
 
 def vvideotopic(request):
     with open(os.path.join(settings.BASE_DIR,'templates/v-video_topic.html'),"r") as f:
         data = f.read()
         return HttpResponse(data)
-
 
 def Homepage(request):
     course_table = Course.objects.order_by('course_name')
