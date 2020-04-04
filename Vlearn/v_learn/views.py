@@ -86,6 +86,6 @@ def Get_Data_topic(request):
 
 def Get_Data_mcq(request):
     id=request.GET['id']
-    mcq = Mcq.objects.get(id=id)
-    return JsonResponse({'question':mcq.question,
-    'opt':mcq.option_a})    
+    mcqs = Mcq.objects.filter(topic_id=id).values('id', 'question', 'option_a', 'option_b', 'option_c', 'option_d', 'right_option')
+    mcqs = list(mcqs) 
+    return JsonResponse ({'mcqs': mcqs})   
