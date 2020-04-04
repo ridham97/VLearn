@@ -35,7 +35,7 @@
 </nav>
 
 <div class="container">
-  <form class="navbar-search ">
+  <form class="navbar-search">
     <div class="input-group">
       <input
         class="bg-light form-control border-0 small"
@@ -50,7 +50,7 @@
     </div>
   </form>
 
-  <div class="d-flex flex-wrap justify-content-around">
+  <!-- <div class="d-flex flex-wrap justify-content-around">
     {% for acc in insert_course_table %}
     <div class="card text-white  m-3 shadow-sm" style="max-width: 18rem;">
       <a
@@ -69,6 +69,58 @@
       </div>
     </div>
     {% endfor %}
+  </div> -->
+
+  <div class="d-flex flex-wrap justify-content-around">
+    <div class="card text-white m-3 shadow-sm" style="max-width: 18rem;">
+      <a
+        href="{% url 'templates:detail' %}"
+        class="text-white text-decoration-none"
+      >
+        <h3 class="card-header p-4 text-center rounded-top v-color">
+          Javascript
+        </h3>
+      </a>
+      <div class="card-body bg-light text-dark">
+        <p class="card-text">
+          JavaScript, often abbreviated as JS, is a programming language that
+          conforms to the ECMAScript specification. JavaScript is...
+        </p>
+      </div>
+    </div>
+
+    <div class="card text-white m-3 shadow-sm" style="max-width: 18rem;">
+      <a
+        href="{% url 'templates:detail' %}"
+        class="text-white text-decoration-none"
+      >
+        <h3 class="card-header p-4 text-center rounded-top v-color">
+          Python
+        </h3>
+      </a>
+      <div class="card-body bg-light text-dark">
+        <p class="card-text">
+          Python is an interpreted, high-level, general-purpose programming
+          language. Created by Guido van Rossum and first released in 1991...
+        </p>
+      </div>
+    </div>
+    <div class="card text-white m-3 shadow-sm" style="max-width: 18rem;">
+      <a
+        href="{% url 'templates:detail' %}"
+        class="text-white text-decoration-none"
+      >
+        <h3 class="card-header p-4 text-center rounded-top v-color">
+          C++
+        </h3>
+      </a>
+      <div class="card-body bg-light text-dark">
+        <p class="card-text">
+          C++ is a high-level, general-purpose programming language created by
+          Bjarne Stroustrup as an extension of the C programming language...
+        </p>
+      </div>
+    </div>
   </div>
 </div>
 {% endblock %}

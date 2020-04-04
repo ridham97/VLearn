@@ -34,7 +34,7 @@
 </nav>
 <div class="container-fluid">
   <div class="container">
-    <h1 class="d-flex justify-content-center  my-3">
+    <h1 class="d-flex justify-content-center my-3">
       <span class="p-3 badge v-color text-white">Javascript</span>
     </h1>
     <div class="card shadow">
@@ -43,7 +43,7 @@
       </div>
       <div class="card-body">
         <p class="text-justify">
-         {{topic_list.0.content | safe }}
+          {{topic_list.0.content | safe }}
         </p>
       </div>
     </div>
@@ -52,7 +52,7 @@
         <h3 class="">Course Content</h3>
       </div>
       <div class="card-body">
-        <div class="accordion " id="accordionExample">
+        <div class="accordion" id="accordionExample">
           {% for acc in topic_list %}
           <div class="card">
             <div class="card-header" id="headingOne">
@@ -73,91 +73,49 @@
     </div>
 
     <div class="d-flex justify-content-center my-3">
-      <button onclick="EnrollUser()"
-        class="btn btn-primary m-5 display-4"
-      >
-        Enroll me</button
-      >
+      <button onclick="EnrollUser()" class="btn btn-primary m-5 display-4">
+        Enroll me
+      </button>
     </div>
   </div>
 </div>
 
 <div class="container">
   <div class="d-flex flex-wrap justify-content-around">
-    <div class="card text-white  m-3 shadow-sm" style="max-width: 18rem;">
-      <a href="./Detail.html" class="text-white text-decoration-none">
+    <div class="card text-white m-3 shadow-sm" style="max-width: 18rem;">
+      <a href="{% url 'templates:detail' %}" class="text-white text-decoration-none">
         <h3 class="card-header p-4 text-center rounded-top v-color">
-          JavaScript
+          Python
         </h3>
       </a>
       <div class="card-body bg-light text-dark">
         <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+          Python is an interpreted, high-level, general-purpose programming
+          language. Created by Guido van Rossum and first released in 1991...
         </p>
       </div>
     </div>
 
-    <div class="card text-white  m-3 shadow-sm" style="max-width: 18rem;">
-      <a href="#" class="text-white text-decoration-none">
+    <div class="card text-white m-3 shadow-sm" style="max-width: 18rem;">
+      <a href="{% url 'templates:detail' %}" class="text-white text-decoration-none">
         <h3 class="card-header p-4 text-center rounded-top v-color">
-          JavaScript
+          C++
         </h3>
       </a>
       <div class="card-body bg-light text-dark">
         <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-      </div>
-    </div>
-
-    <div class="card text-white  m-3 shadow-sm" style="max-width: 18rem;">
-      <a href="#" class="text-white text-decoration-none">
-        <h3 class="card-header p-4 text-center rounded-top v-color">
-          JavaScript
-        </h3>
-      </a>
-      <div class="card-body bg-light text-dark">
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-      </div>
-    </div>
-
-    <div class="card text-white  m-3 shadow-sm" style="max-width: 18rem;">
-      <a href="#" class="text-white text-decoration-none">
-        <h3 class="card-header p-4 text-center rounded-top v-color">
-          JavaScript
-        </h3>
-      </a>
-      <div class="card-body bg-light text-dark">
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-      </div>
-    </div>
-
-    <div class="card text-white  m-3 shadow-sm" style="max-width: 18rem;">
-      <a href="#" class="text-white text-decoration-none">
-        <h3 class="card-header p-4 text-center rounded-top v-color">
-          JavaScript
-        </h3>
-      </a>
-      <div class="card-body bg-light text-dark">
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+          C++ is a high-level, general-purpose programming language created by
+          Bjarne Stroustrup as an extension of the C programming language...
         </p>
       </div>
     </div>
   </div>
 </div>
 <script>
-  const EnrollUser = ()=>{
-    window.localStorage.getItem("Email") ? window.location.assign('/content') : window.location.assign('/register');
-  }
+  const EnrollUser = () => {
+    window.localStorage.getItem('Email')
+      ? window.location.assign('/content')
+      : window.location.assign('/register');
+  };
 </script>
 {% endblock %}
