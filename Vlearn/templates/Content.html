@@ -77,9 +77,10 @@
 
                     <!-- video -->
                     <div id="Video" class="activeclassnone">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/8zUYHWqkt4E" frameborder="0"
+                        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/8zUYHWqkt4E" frameborder="0"
                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+                            allowfullscreen></iframe> -->
+                            <div class="display-1 m-5">Not Available</div>
                     </div>
 
                     <!-- quiz -->
@@ -91,10 +92,8 @@
                         </div>
                         <div class="quiz py-4 bg-light">
                             <div class="container">
-                                <h2 class="my-5 text-dark">On with the questions...</h2>
+                                <h3 class="text-dark">On with the questions...</h3>
                                 <div id="loadMcq"></div>
-
-                                
                                     <div class="text-center">
                                         <button class="btn btn-dark">Submit</button>
                                     </div>
@@ -176,19 +175,19 @@
                         `<div>
                                         <p class="lead font-weight-normal">${list.question}</p>
                                         <div class="form-check my-2 text-dark">
-                                            <input type="radio" name="q1" value=${list.option_a}>
+                                            <input type="radio" name="${list.id}" value=${list.option_a}>
                                             <label class="form-check-label">${list.option_a}</label>
                                         </div>
                                         <div class="form-check my-2 text-dark">
-                                            <input type="radio" name="q1" value=${list.option_b}>
+                                            <input type="radio" name="${list.id}" value=${list.option_b}>
                                             <label class="form-check-label">${list.option_b}</label>
                                         </div>
                                         <div class="form-check my-2 text-dark">
-                                            <input type="radio" name="q1" value=${list.option_c}>
+                                            <input type="radio" name="${list.id}" value=${list.option_c}>
                                             <label class="form-check-label">${list.option_c}</label>
                                         </div>
                                         <div class="form-check my-2 text-dark">
-                                            <input type="radio" name="q1" value=${list.option_d}>
+                                            <input type="radio" name="${list.id}" value=${list.option_d}>
                                             <label class="form-check-label">${list.option_d}</label>
                                         </div>
                                     </div><hr>`
