@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+    <title>admin form for topic</title>
+  </head>
+  <body>
+    <!-- <div class="container pt-3">
+      <div class="card">
+        <div class="card-body">
+          <form method="post" action="/adminform">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Enter Course</label>
+              <input
+                type="text"
+                name="CourseName"
+                class="form-control"
+                id="exampleFormControlInput1"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="container pt-3">
+      <div class="card">
+        <div class="card-body">
+          <form method="POST" action="/adminform">
+            {% csrf_token %}
+            <div class="form-group row">
+              <div class="col-3">
+                <label for="exampleFormControlSelect1">Select Course</label>
+                <select
+                  class="form-control"
+                  required
+                  name="course_name"
+                  id="exampleFormControlSelect1"
+                >
+                  <!-- <option selected="select" value="seleted"></option> -->
+                  {% for listTopic in topicCourse %}
+                  <option class="text-dark" value="{{listTopic.id}}"
+                    >{{listTopic.course_name}}</option
+                  >
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Topic</label>
+              <input
+                type="text"
+                name="TopicValue"
+                required
+                class="form-control"
+                id="exampleFormControlInput1"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Descreption</label>
+              <div id="editor"></div>
+              <input type="text" id="id1" name="ContentValue">
+            </div>
+            <button type="submit" onclick="myfun()" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+      <button class="btn btn-primary float-right">Add MCQ</button>
+    </div>
+    
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script>
+    var quill = new Quill('#editor', {
+      theme: 'snow'
+    });
+    function myfun(){
+      var inputF = document.getElementById("id1").value = quill.root.innerHTML;
+    }
+    </script>
+  </body>
+</html>

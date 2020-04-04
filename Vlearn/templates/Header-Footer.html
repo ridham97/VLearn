@@ -1,86 +1,156 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      rel="stylesheet"
-      href="{%static 'bootstrap/css/bootstrap.min.css' %}"
-    />
-    <link rel="stylesheet" href="{%static 'bootstrap/css/style4.css' %}" />
-    <!-- <link
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="{%static 'bootstrap/css/bootstrap.min.css' %}" />
+  <link rel="stylesheet" href="{%static 'bootstrap/css/style4.css' %}" />
+  <!-- <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     /> -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
-    />
-    <title>Homepage</title>
-  </head>
-  <body>
-    {% block content %}{% endblock %}
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" />
+  <title>Homepage</title>
+  <style>
+    .activeclassnone {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  {% block content %}{% endblock %}
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="{%static 'js/index.js' %}"></script>
+  <script src="{%static 'js/theme.js' %}"></script>
+
+  <!-- for navbar -->
+  <script>
+    if (window.localStorage.getItem("Email")) {
+      const LoginUser = `<nav class="navbar navbar-light navbar-expand bg-white shadow-sm mb-4 topbar static-top ">
+  <div class="container-fluid">
+      <!-- <div class="text-center d-none d-sm-block d-md-none"><button class="btn rounded-circle border-0 bg-dark" id="sidebarToggleTop"
+            type="button"></button></div> -->
+      <!-- <span style="font-size:30px;cursor:pointer" id="openmenu" onclick="openNav()">&#9776;</span> -->
+      <a class="navbar-brand" href="#"><b class="display-4">V</b>Learn</a>
+      <ul class="nav navbar-nav flex-nowrap ml-auto">
+          <div class="d-none d-sm-block topbar-divider"></div>
+          <li class="nav-item dropdown no-arrow" role="presentation">
+              <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
+                      data-toggle="dropdown" aria-expanded="false" href="#"><span
+                          class="d-none d-lg-inline mr-2 text-gray-600 small">Valerie
+                          Luna</span><img class="border rounded-circle img-profile"
+                          src="assets/img/avatars/avatar1.jpeg"></a>
+                  <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"
+                      style="z-index: 9999999;">
+                      <a class="dropdown-item" role="presentation" href="./Profile.html"><i
+                              class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a
+                          class="dropdown-item" role="presentation" href="#"><i
+                              class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
+                      <div class="dropdown-divider"></div><button onclick="LogoutUser()"
+                          class="dropdown-item" role="presentation">
+                          <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400">
+                          </i>&nbsp;Logout
+                      </button>
+                  </div>
+              </div>
+          </li>
+      </ul>
+  </div>
+</nav>
+`
+      document.getElementById("navChanger").innerHTML = LoginUser;
+    } else {
+      const NotLoginUser = `<nav
+  class="navbar navbar-light navbar-expand bg-white shadow-sm mb-4 topbar static-top"
+>
+  <a class="navbar-brand" href="#"><b class="display-4">V</b>Learn</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div
+    class="collapse navbar-collapse justify-content-end"
+    id="navbarSupportedContent"
+  >
+    <div class="navbar-nav">
+      <a
+        class="nav-item btn btn-dark rounded-sm nav-link text-white mr-2"
+        href="{% url 'templates:login' %}"
+        >Login</a
+      >
+      <a
+        class="nav-item nav-link rounded-sm active"
+        href="{% url 'templates:register' %}"
+        >Sign up</a
+      >
+    </div>
+  </div>
+</nav>`
+      document.getElementById("navChanger").innerHTML = NotLoginUser;
+    }
+  </script>
+
+  <script>
+    function openNav() {
+      document.getElementById('mySidenav').style.width = '250px';
+      document.getElementById('wrapper').style.marginLeft = '250px';
+      document.getElementById('openmenu').style.display = 'none';
+    }
+
+    function closeNav() {
+      document.getElementById('mySidenav').style.width = '0';
+      document.getElementById('wrapper').style.marginLeft = '0';
+      document.getElementById('openmenu').style.display = 'block';
+    }
+  </script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+  <script src="/__/firebase/7.13.1/firebase-auth.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyBe8Ztche_W9jaQjqvc6-a5sTqryJtkIns",
+      authDomain: "vlearn-2ba02.firebaseapp.com",
+      databaseURL: "https://vlearn-2ba02.firebaseio.com",
+      projectId: "vlearn-2ba02",
+      storageBucket: "vlearn-2ba02.appspot.com",
+      messagingSenderId: "308613784751",
+      appId: "1:308613784751:web:ac4257366afd772976e05a",
+      measurementId: "G-8VDV6NQ818"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    const LogoutUser = () => {
+        firebase.auth().signOut().then(function () {
+            // Sign-out successful.
+            window.location.assign('/login');
+            window.localStorage.removeItem('Email');
+        })
+    }
+  </script>
   
+</body>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="{%static 'js/index.js' %}"></script>
-    <script src="{%static 'js/theme.js' %}"></script>
-
-    <script>
-      function openNav() {
-        document.getElementById('mySidenav').style.width = '250px';
-        document.getElementById('wrapper').style.marginLeft = '250px';
-        document.getElementById('openmenu').style.display = 'none';
-      }
-
-      function closeNav() {
-        document.getElementById('mySidenav').style.width = '0';
-        document.getElementById('wrapper').style.marginLeft = '0';
-        document.getElementById('openmenu').style.display = 'block';
-      }
-    </script>
-    <!-- <script>
-      $(document).ready(function() {
-        var trigger = $('#navbarText ul li a'),
-          container = $('#card-1');
-
-        $('#card-1').load('templates/v-module.html');
-        trigger.on('click', function() {
-          var $this = $(this),
-            target = $this.data('target');
-
-          container.load(target + '.html');
-
-          return false;
-        });
-      });
-    </script> -->
-<script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
-<script src="/__/firebase/7.13.1/firebase-auth.js"></script>
-<script defer src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
-
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyBe8Ztche_W9jaQjqvc6-a5sTqryJtkIns",
-    authDomain: "vlearn-2ba02.firebaseapp.com",
-    databaseURL: "https://vlearn-2ba02.firebaseio.com",
-    projectId: "vlearn-2ba02",
-    storageBucket: "vlearn-2ba02.appspot.com",
-    messagingSenderId: "308613784751",
-    appId: "1:308613784751:web:ac4257366afd772976e05a",
-    measurementId: "G-8VDV6NQ818"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-</script>
-  </body>
 </html>

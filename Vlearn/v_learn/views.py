@@ -27,44 +27,6 @@ def Login(request):
 def Profile(request):
     return render(request, "Profile.html")
 
-
-
-
-
-# def vfaq(request):
-#     return render(request, "v-faq.html")
-
-
-# def vmodule(request):
-#     with open(os.path.join(settings.BASE_DIR,'templates/v-module.html'),"r") as f:
-#         data = f.read()
-#         topic_content = Topic.objects.all()
-#         topic_content = {"topic_content":topic_content}
-#         return HttpResponse(data)
-
-
-def vquiz(request):
-    with open(os.path.join(settings.BASE_DIR,'templates/v-quiz.html'),"r") as f:
-        data = f.read()
-        return HttpResponse(data)
-
-def vcompiler(request):
-    with open(os.path.join(settings.BASE_DIR,'templates/v-compiler.html'),"r") as f:
-        data = f.read()
-        return HttpResponse(data)
-
-
-# def vsimulator(request):
-#    with open(os.path.join(settings.BASE_DIR,'templates/v-simulator.html'),"r") as f:
-#         data = f.read()
-#         return HttpResponse(data)
-
-
-def vvideotopic(request):
-    with open(os.path.join(settings.BASE_DIR,'templates/v-video_topic.html'),"r") as f:
-        data = f.read()
-        return HttpResponse(data)
-
 def Homepage(request):
     course_table = Course.objects.order_by('course_name')
     my_course_table = {"insert_course_table": course_table}
@@ -82,19 +44,37 @@ def Detail(request):
 
 
 def adminform(request):
+    # for input topic and content
     topic_data = Course.objects.all()
-    topic_list = {"insetTopicData": topic_data}
-
+    topic_Course = {"topicCourse": topic_data}
     coursename = request.POST.get("course_name")
     topicValue = request.POST.get("TopicValue")
     contentValue = request.POST.get("ContentValue")
     save_data = Topic(course_name_id=coursename, topic=topicValue,content=contentValue)
     save_data.save()
-    return render(request, "admin.html", context=topic_list)
+    return render(request, "adminTopicContent.html", context=topic_Course)
+
+def adminformMCQ(request):
+    topic_data = Topic.objects.all()
+    topic = {"topic": topic_data}
+
+    course = request.POST.get("course")
+    topic = request.POST.get("topic")
+    que = request.POST.get("question")
+    optA = request.POST.get("optA")
+    optB = request.POST.get("optB")
+    optC = request.POST.get("optC")
+    optD = request.POST.get("optD")
+    answer = request.POST.get("answer")
+    save_mcq = Mcq(course_name_id=course,topic_id=topic,question=que,option_a=optA,option_b=optB,option_c=optC,option_d=optD,right_option=answer)
+    save_mcq.save()
+    return render(request, "adminMCQ.html", context=topic)
 
 def Register(request):
+    firstName = request.POST.get("first_name")
+    lastName = request.POST.get("last_name")
     useremail = request.POST.get("email")
-    save_data = VlearnUser(emailid=useremail,courseList=1,percentage=1)
+    save_data = VlearnUser(firstName=firstName,lastName=lastName,emailid=useremail,courseList=1,percentage=1)
     save_data.save()
     return render(request, "register.html")
 
@@ -103,3 +83,9 @@ def Get_Data_topic(request):
     topic = Topic.objects.get(id=id)
     return JsonResponse({'name':topic.topic,
     'content':topic.content})
+
+def Get_Data_mcq(request):
+    id=request.GET['id']
+    mcq = Mcq.objects.get(id=id)
+    return JsonResponse({'question':mcq.question,
+    'opt':mcq.option_a})    

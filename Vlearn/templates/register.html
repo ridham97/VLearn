@@ -13,7 +13,7 @@
                         <div class="text-center">
                             <h4 class="text-dark mb-4">Create an Account!</h4>
                         </div>
-                        <p class="text-danger" id="error">Please verify email-id</p>
+                        <p class="text-danger" id="error">we have send mail to verfiy your mail </p>
                         <form class="user" method="POST">
                             {% csrf_token %}
                             <div class="form-group row">
@@ -32,8 +32,8 @@
                                         name="password"></div>
                             </div>
                         </form>
-                        <button class="btn btn-primary btn-block text-white btn-user" onclick="RegisterNewUser()">
-                            Register Account</button>
+                            <button class="btn btn-primary btn-block text-white btn-user" onclick="RegisterNewUser()">
+                                Register Account</button>
                         <hr>
                         <button onclick="Googlesignup()"
                             class="btn btn-primary btn-block text-white btn-google btn-user"><i
@@ -93,4 +93,9 @@
         })
     }
 </script>
+<script>
+    if(window.localStorage.getItem("Email")){
+      window.location.assign("/");
+    }
+  </script>
 {% endblock %}
