@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <title>admin form MCQ</title>
+</head>
+
+<body>
+  <div class="container pt-3">
+    <div class="card">
+      <div class="card-body">
+        <form method="POST">
+          {% csrf_token %}
+          <div class="form-group row">
+            <div class="col-3">
+              <label for="exampleFormControlSelect1">Select Course</label>
+              <select class="form-control" name="course" id="exampleFormControlSelect1">
+                {% for listcourse in topic %}
+                <option value="{{listcourse.id}}">{{listcourse.course_name}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="col-3">
+              <label for="exampleFormControlSelect1">Select Topic</label>
+              <select class="form-control" name="topic" id="exampleFormControlSelect1">
+                {% for listTopic in topic %}
+                <option value="{{listTopic.id}}">{{listTopic.topic}}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="question">Question</label>
+            <input type="text" name="question" class="form-control" id="question" required />
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="optA">Option-A</label>
+                <input type="text" name="optA" class="form-control" id="optA" />
+              </div>
+              <div class="form-group">
+                <label for="optB">Option-B</label>
+                <input type="text" name="optB" class="form-control" id="optB" />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="optC">Option-C</label>
+                <input type="text" name="optC" class="form-control" id="optC" />
+              </div>
+              <div class="form-group">
+                <label for="optD">Option-D</label>
+                <input type="text" name="optD" class="form-control" id="optD" />
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="answer">Right Answer</label>
+            <input type="text" name="answer" class="form-control" id="answer" />
+          </div>
+          <button type="button" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

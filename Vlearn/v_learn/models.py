@@ -21,23 +21,25 @@ class Topic(models.Model):
 
 
 class Mcq(models.Model):
-    course_name = models.ForeignKey(Course, on_delete=models.CASCADE)
-    topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
-    question = models.CharField(max_length=264)
-    option_a = models.CharField(max_length=264)
-    option_b = models.CharField(max_length=264)
-    option_c = models.CharField(max_length=264)
-    option_d = models.CharField(max_length=264)
-    right_option = models.CharField(max_length=264)
+    course_name = models.ForeignKey(Course, on_delete=models.CASCADE,null=True)
+    topic = models.ForeignKey(Topic, on_delete=models.CASCADE,null=True)
+    question = models.CharField(max_length=264,null=True)
+    option_a = models.CharField(max_length=264,null=True)
+    option_b = models.CharField(max_length=264,null=True)
+    option_c = models.CharField(max_length=264,null=True)
+    option_d = models.CharField(max_length=264,null=True)
+    right_option = models.CharField(max_length=264,null=True)
 
     def __str__(self):
         return self.question or ''
 
 class VlearnUser(models.Model):
+    firstName = models.CharField(max_length=264,null=True)
+    lastName = models.CharField(max_length=264,null=True)
     emailid = models.CharField(max_length=264,null=True)
     courseList = models.CharField(max_length=264,null=True)
     percentage =  models.CharField(max_length=264,null=True)
 
     def __str__(self):
-        return self.emailid or ''
+        return self.firstName or ''
 

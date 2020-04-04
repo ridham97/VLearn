@@ -64,7 +64,7 @@
     const password = $("#exampleInputPassword").val();
     firebase.auth().onAuthStateChanged(user => {
       firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
-        window.location.assign("/content");
+        window.location.assign("/");
         window.localStorage.setItem("Email", email);
       })
     })

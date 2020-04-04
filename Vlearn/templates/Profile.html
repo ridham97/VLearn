@@ -389,4 +389,10 @@
   </div>
 </div>
 
+<script>
+  if(!window.localStorage.getItem("Email")){
+    window.location.assign("/login");
+  }
+</script>
+
 {% endblock %}

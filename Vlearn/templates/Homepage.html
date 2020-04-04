@@ -1,38 +1,6 @@
 {% extends "Header-Footer.html" %} {% block content %}
 
-<nav
-  class="navbar navbar-light navbar-expand bg-white shadow-sm mb-4 topbar static-top"
->
-  <a class="navbar-brand" href="#"><b class="display-4">V</b>Learn</a>
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div
-    class="collapse navbar-collapse justify-content-end"
-    id="navbarSupportedContent"
-  >
-    <div class="navbar-nav">
-      <a
-        class="nav-item btn btn-dark rounded-sm nav-link text-white mr-2"
-        href="{% url 'templates:login' %}"
-        >Login</a
-      >
-      <a
-        class="nav-item nav-link rounded-sm active"
-        href="{% url 'templates:register' %}"
-        >Sign up</a
-      >
-    </div>
-  </div>
-</nav>
+<div id="navChanger"></div>
 
 <div class="container">
   <form class="navbar-search ">
@@ -71,4 +39,5 @@
     {% endfor %}
   </div>
 </div>
+
 {% endblock %}
