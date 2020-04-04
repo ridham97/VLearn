@@ -13,5 +13,6 @@ urlpatterns = [
     path('login', views.Login, name="login"),
     path('register', views.Register, name="register"),
     path('profile', views.Profile, name="profile"),
-    path('get_data_for_topic/',views.Get_Data_topic,name="Get_Data_topic")
+    path('get_data_for_topic/',views.Get_Data_topic,name="Get_Data_topic"),
+    path('Get_Data_mcq/',views.Get_Data_mcq,name="Get_Data_mcq")
 ]
