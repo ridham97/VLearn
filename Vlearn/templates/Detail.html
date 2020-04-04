@@ -52,7 +52,7 @@
 <div class="container">
   <div class="d-flex flex-wrap justify-content-around">
     <div class="card text-white m-3 shadow-sm" style="max-width: 18rem;">
-      <a href="{% url 'templates:detail' %}" class="text-white text-decoration-none">
+      <a href="#" class="text-white text-decoration-none">
         <h3 class="card-header p-4 text-center rounded-top v-color">
           Python
         </h3>
@@ -66,7 +66,7 @@
     </div>
 
     <div class="card text-white m-3 shadow-sm" style="max-width: 18rem;">
-      <a href="{% url 'templates:detail' %}" class="text-white text-decoration-none">
+      <a href="#" class="text-white text-decoration-none">
         <h3 class="card-header p-4 text-center rounded-top v-color">
           C++
         </h3>
@@ -84,7 +84,7 @@
   const EnrollUser = () => {
     window.localStorage.getItem('Email')
       ? window.location.assign('/content')
-      : window.location.assign('/register');
+      : window.location.assign('/login');
   };
 </script>
 {% endblock %}

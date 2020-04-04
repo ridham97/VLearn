@@ -11,6 +11,8 @@
                 <div class="col-lg-7">
                     <div class="p-5">
                         <div class="text-center">
+                  <a class="navbar-brand" href="{% url 'templates:homepage' %}"><b class="display-4">V</b>Learn</a>
+
                             <h4 class="text-dark mb-4">Create an Account!</h4>
                         </div>
                         <p class="text-danger" id="error">we have send mail to verfiy your mail </p>
@@ -35,12 +37,12 @@
                             <button class="btn btn-primary btn-block text-white btn-user" onclick="RegisterNewUser()">
                                 Register Account</button>
                         <hr>
-                        <button onclick="Googlesignup()"
+                        <button type="button" onclick="Googlesignup()"
                             class="btn btn-primary btn-block text-white btn-google btn-user"><i
                                 class="fab fa-google"></i>&nbsp; Register with Google</button>
                         <hr>
-                        <div class="text-center"><a class="small" href="{% url 'templates:forgotpass' %}">Forgot Password?</a>
-                        </div>
+                        <!-- <div class="text-center"><a class="small" href="{% url 'templates:forgotpass' %}">Forgot Password?</a>
+                        </div> -->
                         <div class="text-center"><a class="small" href="{% url 'templates:login' %}">Already have an
                                 account?
                                 Login!</a></div>
@@ -88,7 +90,11 @@
             var token = result.credential.accessToken;
             // The signed-in user info.
             var user = result.user;
-            console.log("yes")
+            window.localStorage.setItem("Email",user.email);
+            window.localStorage.setItem("token",user.uid);
+            window.localStorage.setItem("userPhoto",user.photoURL);
+            window.localStorage.setItem("userName",user.displayName);
+            window.location.assign('/');
             // ...
         })
     }
